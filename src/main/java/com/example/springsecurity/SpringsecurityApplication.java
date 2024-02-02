@@ -20,7 +20,7 @@ public class SpringsecurityApplication implements CommandLineRunner {
 	}
 
 	public void run(String... args){
-		User adminaccount = UserRepository.findByRole(Role.ADMIN);
+		User adminaccount = userRepository.findByRole(Role.ADMIN);
 
 		if (adminaccount == null){
 			User user = new User();
