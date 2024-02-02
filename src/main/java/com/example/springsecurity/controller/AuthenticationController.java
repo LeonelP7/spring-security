@@ -1,5 +1,7 @@
 package com.example.springsecurity.controller;
 
+import com.example.springsecurity.dto.JwtAuthenticationResponse;
+import com.example.springsecurity.dto.SigninRequest;
 import com.example.springsecurity.dto.SingUpRequest;
 import com.example.springsecurity.entities.User;
 import com.example.springsecurity.sercies.AuthenticationService;
@@ -19,6 +21,11 @@ public class AuthenticationController {
 
     @PostMapping("/signup")
     public ResponseEntity<User> signup(@RequestBody SingUpRequest singUpRequest){
-        return ResponseEntity.ok(authenticationService.singup(singUpRequest);
+        return ResponseEntity.ok(authenticationService.singup(singUpRequest));
+    }
+
+    @PostMapping("/signin")
+    public ResponseEntity<JwtAuthenticationResponse> signin(@RequestBody SigninRequest signinRequest){
+        return ResponseEntity.ok(authenticationService.signin(signinRequest));
     }
 }
